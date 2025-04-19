@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lara Bomb - Bomberman-Like</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Header/Navigation -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Lara Bomb Logo" />
+          <span>Lara Bomb</span>
+        </div>
+        <nav class="nav">
+          <a href="#home" class="nav-link">Início</a>
+          <a href="#about" class="nav-link">Sobre</a>
+          <a href="#gallery" class="nav-link">Galeria</a>
+          <a href="#download" class="nav-link">Download</a>
+          <a href="#team" class="nav-link">Equipe</a>
+          <a href="#leaderboard" class="nav-link">Leaderboard</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Lara Bomb</h1>
+        <p>
+          A evolução do Bomberman clássico com temática árabe. Coloque bombas,
+          destrua paredes e derrote seus inimigos online!
+        </p>
+        <div class="hero-buttons">
+          <a href="#download" class="btn btn-primary">
+            <i data-lucide="download"></i> Download
+          </a>
+          <a href="#about" class="btn btn-outline">Saiba Mais</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2><i data-lucide="gamepad-2"></i> Sobre o Jogo</h2>
+        <p>
+          Lara Bomb é um jogo inspirado no clássico Bomberman, com uma temática
+          árabe e ambientação no deserto. Os jogadores colocam bombas para
+          destruir obstáculos e derrotar oponentes, enquanto coletam power-ups e
+          tentam ser o último a sobreviver.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <i data-lucide="globe"></i>
+            <h3>Multiplayer Online</h3>
+            <p>
+              Jogue contra amigos ou desconhecidos em partidas online de até 2
+              jogadores.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="trophy"></i>
+            <h3>Sistema de Ranking</h3>
+            <p>Vença partidas e veja sua posição no ranking</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="zap"></i>
+            <h3>Power-Ups</h3>
+            <p>
+              Colete power-ups para aumentar o alcance das bombas, velocidade, e
+              quantidade de bombas simultâneas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <h2><i data-lucide="image"></i> Galeria</h2>
+        <div class="gallery-container">
+          <button class="gallery-button prev" aria-label="Imagem anterior">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <div class="gallery">
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/300/150"
+                alt="Gameplay no deserto"
+              />
+            </div>
+            <div class="gallery-item">
+              <img src="https://picsum.photos/300/150" alt="Menu principal" />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/300/150"
+                alt="Power-ups e bombas"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/300/150"
+                alt="Multiplayer em ação"
+              />
+            </div>
+          </div>
+          <button class="gallery-button next" aria-label="Próxima imagem">
+            <i data-lucide="chevron-right"></i>
+          </button>
+          <div class="gallery-nav">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+      <div class="container">
+        <h2><i data-lucide="download-cloud"></i> Download</h2>
+        <p>Escolha a versão para o seu sistema operacional e comece a jogar!</p>
+
+        <div class="download-options">
+          <div class="download-card">
+            <i data-lucide="monitor"></i>
+            <h3>Windows <i data-lucide="sparkles"></i></h3>
+            <p>Versão para Windows (.exe)</p>
+            <button class="btn btn-disabled">
+              <i data-lucide="timer"></i> Coming Soon
+            </button>
+          </div>
+          <div class="download-card">
+            <i data-lucide="terminal"></i>
+            <h3>Linux <i data-lucide="sparkles"></i></h3>
+            <p>Versão para Linux</p>
+            <button class="btn btn-disabled">
+              <i data-lucide="timer"></i> Coming Soon
+            </button>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h3>Instruções de Instalação</h3>
+          <ol>
+            <li>Faça o download do arquivo compactado (.zip)</li>
+            <li>Extraia o conteúdo para uma pasta de sua preferência</li>
+            <li>
+              <strong>Windows:</strong> Execute o arquivo "lara-bomb.exe"<br />
+              <strong>Linux:</strong> Abra o terminal, navegue até a pasta
+              extraída e execute:
+              <pre>chmod +x lara-bomb && ./lara-bomb</pre>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+      <div class="container">
+        <h2><i data-lucide="users"></i> Nossa Equipe</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://github.com/felipeadeildo.png" alt="Lipe" />
+            <h3>Felipe Adeildo</h3>
+            <p>Full-Stack Developer</p>
+            <div class="social-links">
+              <a
+                href="https://github.com/felipeadeildo"
+                target="_blank"
+                aria-label="GitHub do Felipe"
+              >
+                <i data-lucide="github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/felipeadeildo"
+                target="_blank"
+                aria-label="LinkedIn do Felipe"
+              >
+                <i data-lucide="linkedin"></i>
+              </a>
+            </div>
+          </div>
+          <div class="team-member">
+            <img src="https://github.com/VihOht.png" alt="Robson" />
+            <h3>Robson França</h3>
+            <p>Game Developer</p>
+            <div class="social-links">
+              <a
+                href="https://github.com/VihOht"
+                target="_blank"
+                aria-label="GitHub do Robson"
+              >
+                <i data-lucide="github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/robson-fran%C3%A7a-981276257/"
+                target="_blank"
+                aria-label="LinkedIn do Robson"
+              >
+                <i data-lucide="linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard-section">
+      <div class="container">
+        <h2><i data-lucide="medal"></i> Leaderboard</h2>
+        <p>Confira os melhores jogadores de Lara Bomb!</p>
+
+        <div class="leaderboard">
+          <table id="leaderboard-table" class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Jogador</th>
+                <th>Vitórias</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3">Carregando leaderboard...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credits Section -->
+    <section id="credits" class="credits">
+      <div class="container">
+        <h2><i data-lucide="heart"></i> Créditos</h2>
+        <div class="credits-grid">
+          <div class="credit-card">
+            <h3><i data-lucide="code"></i> Desenvolvimento</h3>
+            <p>
+              Este jogo foi desenvolvido como projeto acadêmico pelos estudantes
+              listados na seção Equipe.
+            </p>
+          </div>
+          <div class="credit-card">
+            <h3><i data-lucide="music"></i> Trilha Sonora</h3>
+            <p>Músicas por <a href="#">Finx</a></p>
+            <p>Efeitos Sonoros por <a href="#">Finx</a></p>
+          </div>
+          <div class="credit-card">
+            <h3><i data-lucide="palette"></i> Arte</h3>
+            <p>Sprites e Concept Art por <a href="#">Arak</a></p>
+            <p>Interface e Menus por <a href="#">Arak</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRAP Report Section -->
+    <section id="crap" class="crap-report">
+      <div class="container">
+        <h2>Avaliação dos Princípios CRAP</h2>
+        <p>
+          Esta seção será atualizada após a avaliação dos princípios CRAP pela
+          turma.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="social-links">
+          <a href="https://github.com/insper-dev/lara-bomb" aria-label="GitHub">
+            <i data-lucide="github"></i>
+          </a>
+        </div>
+        <p>&copy; 2025 Lara Bomb. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons()
+    </script>
+
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
