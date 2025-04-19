@@ -76,7 +76,7 @@ function initLeaderboard() {
   if (!leaderboardTable) return
 
   // TODO: verificar CORS.
-  const socket = new WebSocket('wss://lara-bomb.insper.dev/ws/leaderboard')
+  const socket = new WebSocket('wss://lara-bomb-api.insper.dev/ws/leaderboard')
 
   // Connection opened
   socket.addEventListener('open', (event) => {
