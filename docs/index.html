@@ -42,10 +42,10 @@
           destrua paredes e derrote seus inimigos online!
         </p>
         <div class="hero-buttons">
-          <a href="#download" class="btn btn-primary">
+          <a href="#download" class="btn btn-primary btn-link">
             <i data-lucide="download"></i> Download
           </a>
-          <a href="#about" class="btn btn-outline">Saiba Mais</a>
+          <a href="#about" class="btn btn-outline btn-link">Saiba Mais</a>
         </div>
       </div>
     </section>
@@ -138,36 +138,45 @@
         <p>Escolha a versão para o seu sistema operacional e comece a jogar!</p>
 
         <div class="download-options">
-          <div class="download-card">
-            <i data-lucide="monitor"></i>
-            <h3>Windows <i data-lucide="sparkles"></i></h3>
-            <p>Versão para Windows (.exe)</p>
-            <button class="btn btn-disabled">
-              <i data-lucide="timer"></i> Coming Soon
-            </button>
+          <div class="download-card" data-os="windows">
+            <div class="new-release-container"></div>
+            <div class="os-icon">
+              <i data-lucide="monitor"></i>
+            </div>
+            <div class="card-content">
+              <h3>Windows</h3>
+              <p>Basta baixar e dar dois cliques para jogar!</p>
+              <button id="download-windows" class="btn btn-disabled">
+                <i data-lucide="timer"></i> Coming Soon
+              </button>
+            </div>
           </div>
-          <div class="download-card">
-            <i data-lucide="terminal"></i>
-            <h3>Linux <i data-lucide="sparkles"></i></h3>
-            <p>Versão para Linux</p>
-            <button class="btn btn-disabled">
-              <i data-lucide="timer"></i> Coming Soon
-            </button>
+          <div class="download-card" data-os="linux">
+            <div class="new-release-container"></div>
+            <div class="os-icon">
+              <i data-lucide="terminal"></i>
+            </div>
+            <div class="card-content">
+              <h3>Linux</h3>
+              <p>Basta baixar e dar dois cliques para jogar!</p>
+              <button id="download-linux" class="btn btn-disabled">
+                <i data-lucide="timer"></i> Coming Soon
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div class="instructions">
-          <h3>Instruções de Instalação</h3>
-          <ol>
-            <li>Faça o download do arquivo compactado (.zip)</li>
-            <li>Extraia o conteúdo para uma pasta de sua preferência</li>
-            <li>
-              <strong>Windows:</strong> Execute o arquivo "lara-bomb.exe"<br />
-              <strong>Linux:</strong> Abra o terminal, navegue até a pasta
-              extraída e execute:
-              <pre>chmod +x lara-bomb && ./lara-bomb</pre>
-            </li>
-          </ol>
+          <div class="download-card" data-os="macos">
+            <div class="new-release-container"></div>
+            <div class="os-icon">
+              <i data-lucide="apple"></i>
+            </div>
+            <div class="card-content">
+              <h3>macOS</h3>
+              <p>Basta baixar e dar dois cliques para jogar!</p>
+              <button id="download-macos" class="btn btn-disabled">
+                <i data-lucide="timer"></i> Coming Soon
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
