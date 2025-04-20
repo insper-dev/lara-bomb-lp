@@ -689,6 +689,173 @@ section {
   padding: var(--spacing-xxl) 0;
 }
 
+/* Development Log Timeline */
+.development-log {
+  background-color: white;
+  padding: var(--spacing-lg) 0;
+}
+
+.development-log h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.dev-log-timeline {
+  position: relative;
+  margin-top: var(--spacing-md);
+}
+
+.dev-log-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--primary);
+  opacity: 0.4;
+}
+
+.dev-day {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.dev-day::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  z-index: 1;
+}
+
+.dev-day-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.dev-day-date {
+  background-color: var(--secondary);
+  color: white;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  margin-right: var(--spacing-sm);
+  font-size: 0.85rem;
+}
+
+.dev-day-count {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.commit-list {
+  background-color: var(--background);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.commit-item {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.commit-item:last-child {
+  border-bottom: none;
+}
+
+.commit-message {
+  font-weight: 500;
+  color: var(--secondary);
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+.commit-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.commit-author {
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacing-sm);
+}
+
+.commit-author img {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.commit-time {
+  font-style: italic;
+  font-size: 0.7rem;
+}
+
+.commit-hash {
+  background-color: #f0f0f0;
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+
+.loading-commits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  color: var(--secondary);
+}
+
+.loading-commits i {
+  animation: spin 1s linear infinite;
+  margin-right: var(--spacing-sm);
+}
+
+.error-message {
+  color: var(--danger);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* scrollbar for commit list  (Credits: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp) */
+.commit-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.commit-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.commit-list::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.commit-list::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
 /* Footer */
 .footer {
   background-color: #1a1a1a;
