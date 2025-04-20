@@ -152,3 +152,71 @@ section .container {
   background: var(--secondary);
   color: var(--secondary-fg);
 }
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.section-header h2 i {
+  color: var(--accent);
+}
+
+.section-header::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  margin: var(--spacing-sm) auto var(--spacing-md);
+  border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--foreground-muted);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  text-align: center;
+}
+
+/* Section Content */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Section Grid Layouts */
+.grid-container {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+/* Responsive adjustments for sections */
+@media (max-width: 768px) {
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
