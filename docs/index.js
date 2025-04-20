@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Gallery carousel functionality
   initGallery()
-
-  // Initialize leaderboard WebSocket
+  initDownloads()
+  initMobileNav()
   initLeaderboard()
-
-  // Smooth scrolling for navigation links
   initSmoothScroll()
 })
 
@@ -20,23 +17,19 @@ function initGallery() {
   let currentIndex = 0
 
   function updateGallery() {
-    // Calculate scroll position
     const scrollPosition =
       galleryItems[currentIndex].offsetLeft - gallery.offsetLeft
 
-    // Scroll to the current item
     gallery.scrollTo({
       left: scrollPosition,
       behavior: 'smooth',
     })
 
-    // Update dots
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === currentIndex)
     })
   }
 
-  // Event listeners for dots
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       currentIndex = index
@@ -44,7 +37,6 @@ function initGallery() {
     })
   })
 
-  // Event listeners for prev/next buttons
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
       currentIndex =
@@ -60,10 +52,9 @@ function initGallery() {
     })
   }
 
-  // Initialize gallery
   updateGallery()
 
-  // Auto-advance gallery every 5 seconds
+  // só pra avançar sozinho a cada 5 segundos.
   setInterval(() => {
     currentIndex = (currentIndex + 1) % galleryItems.length
     updateGallery()
@@ -75,25 +66,20 @@ function initLeaderboard() {
   const leaderboardTable = document.getElementById('leaderboard-table')
   if (!leaderboardTable) return
 
-  // TODO: verificar CORS.
   const socket = new WebSocket('wss://lara-bomb-api.insper.dev/ws/leaderboard')
 
-  // Connection opened
   socket.addEventListener('open', (event) => {
     console.log('Conectado ao servidor de leaderboard')
   })
 
-  // Listen for messages
   socket.addEventListener('message', (event) => {
     try {
       const data = JSON.parse(event.data)
 
       if (data.leaderboard) {
-        // Clear current leaderboard
         const tbody = leaderboardTable.querySelector('tbody')
         tbody.innerHTML = ''
 
-        // Add leaderboard data
         data.leaderboard.forEach((player, index) => {
           const row = document.createElement('tr')
 
@@ -118,15 +104,12 @@ function initLeaderboard() {
     }
   })
 
-  // Connection closed
   socket.addEventListener('close', (event) => {
     console.log('Desconectado do servidor de leaderboard')
 
-    // Tentar reconectar após 5 segundos
     setTimeout(initLeaderboard, 5000)
   })
 
-  // Connection error
   socket.addEventListener('error', (event) => {
     console.error('Erro no WebSocket do leaderboard:', event)
   })
@@ -134,9 +117,12 @@ function initLeaderboard() {
 
 // Smooth scrolling for navigation links
 function initSmoothScroll() {
-  const navLinks = document.querySelectorAll('.nav-link')
+  const linkElements = [
+    ...document.querySelectorAll('.nav-link'),
+    ...document.querySelectorAll('.btn-link'),
+  ]
 
-  navLinks.forEach((link) => {
+  linkElements.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault()
 
@@ -145,7 +131,7 @@ function initSmoothScroll() {
 
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 70, // Ajuste para altura do cabeçalho
+          top: targetElement.offsetTop - 80,
           behavior: 'smooth',
         })
       }
@@ -153,7 +139,7 @@ function initSmoothScroll() {
   })
 }
 
-// Mobile navigation toggle (se você adicionar um menu hambúrguer para dispositivos móveis)
+// Mobile navigation toggle
 function initMobileNav() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
   const nav = document.querySelector('.nav')
@@ -164,4 +150,107 @@ function initMobileNav() {
       mobileMenuBtn.classList.toggle('active')
     })
   }
+}
+
+// Detect user's operating system and initialize downloads
+function initDownloads() {
+  const userOS = {
+    Windows: /Win/i.test(navigator.userAgent),
+    MacOS: /Mac/i.test(navigator.userAgent),
+    Linux: /Linux|X11/i.test(navigator.userAgent),
+  }
+
+  const windowsBtn = document.getElementById('download-windows')
+  const linuxBtn = document.getElementById('download-linux')
+  const macosBtn = document.getElementById('download-macos')
+
+  const apiUrl =
+    'https://api.github.com/repos/insper-dev/lara-bomb/releases/latest'
+
+  const highlightUserCard = () => {
+    const osType = userOS.Windows ? 'windows' : userOS.MacOS ? 'macos' : 'linux'
+    const userCard = document.querySelector(
+      `.download-card[data-os="${osType}"]`
+    )
+    if (userCard) {
+      userCard.classList.add('download-card-highlight')
+    }
+  }
+
+  highlightUserCard()
+
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return response.json()
+    })
+    .then((data) => {
+      // Check if release is less than 30 days old (yep :D)
+      const releaseDate = new Date(data.published_at)
+      const currentDate = new Date()
+      const diffDays = Math.ceil(
+        (currentDate - releaseDate) / (1000 * 60 * 60 * 24)
+      )
+      const isNewRelease = diffDays <= 30
+
+      const version = data.tag_name
+
+      const assets = data.assets
+      const assetMapping = {
+        'lara-bomb.exe': {
+          btn: windowsBtn,
+          container: document.querySelector('[data-os="windows"]'),
+        },
+        'lara-bomb-linux': {
+          btn: linuxBtn,
+          container: document.querySelector('[data-os="linux"]'),
+        },
+        'lara-bomb-macos': {
+          btn: macosBtn,
+          container: document.querySelector('[data-os="macos"]'),
+        },
+      }
+
+      assets.forEach((asset) => {
+        const mapping = assetMapping[asset.name]
+        if (mapping) {
+          const { btn, container } = mapping
+
+          btn.classList.remove('btn-disabled')
+          btn.classList.add('btn-primary')
+          btn.innerHTML = `<i data-lucide="download"></i> Download ${version}`
+          btn.addEventListener('click', () => {
+            window.location.href = asset.browser_download_url
+          })
+
+          if (isNewRelease) {
+            const badgeContainer = container.querySelector(
+              '.new-release-container'
+            )
+            const badge = document.createElement('span')
+            badge.className = 'new-release-badge'
+            badge.textContent = 'Novo!'
+            badgeContainer.appendChild(badge)
+          }
+        }
+      })
+
+      // precisa reinicializar os ícones.
+      lucide.createIcons()
+    })
+    .catch((error) => {
+      console.error('Error fetching release data:', error)
+
+      const downloadSection = document.getElementById('download')
+      if (downloadSection) {
+        const errorMessage = document.createElement('p')
+        errorMessage.className = 'download-error'
+        errorMessage.innerHTML =
+          '<i data-lucide="alert-circle"></i> Não foi possível carregar as informações de download. Por favor, tente novamente mais tarde.'
+        downloadSection.querySelector('.container').appendChild(errorMessage)
+        lucide.createIcons()
+      }
+    })
 }
