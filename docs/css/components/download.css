@@ -1,0 +1,275 @@
+/* Download section */
+.download {
+  background-color: var(--secondary);
+  color: var(--secondary-fg);
+  text-align: center;
+  padding: var(--spacing-xxl) 0;
+}
+
+.download h2 {
+  color: white;
+}
+
+.download-options {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  perspective: 1000px;
+}
+
+.download-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  width: 300px;
+  padding: var(--spacing-lg);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.download-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary);
+}
+
+/* Shine effect - using a different pseudo-element */
+.download-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.download-card:hover::before {
+  left: 100%;
+}
+
+.os-icon {
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.os-icon i {
+  font-size: 3rem;
+  color: var(--primary);
+  filter: drop-shadow(0 0 10px rgba(232, 170, 66, 0.3));
+  transition: all 0.3s ease;
+}
+
+.download-card:hover .os-icon i {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(232, 170, 66, 0.5));
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h3 {
+  color: white;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.8rem;
+}
+
+.card-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+.requirements {
+  list-style: none;
+  margin: var(--spacing-md) 0;
+  text-align: left;
+}
+
+.requirements li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.requirements li i {
+  margin-right: 8px;
+  font-size: 0.8rem;
+}
+
+/* Highlight badge for user's current OS */
+.download-card-highlight {
+  border: 2px solid var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+/* Redesigned recommendation badge - Ribbon style (LEFT SIDE) */
+.download-card-highlight::after {
+  content: 'Recomendado';
+  position: absolute;
+  top: 25px;
+  left: -30px;
+  width: 150px;
+  padding: 4px 0;
+  background: var(--primary);
+  color: var(--primary-fg);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Additional indicators for visual confirmation */
+.download-card-highlight .os-icon i {
+  color: var(--primary);
+  animation: pulse-light 2s infinite;
+}
+
+@keyframes pulse-light {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(232, 170, 66, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(232, 170, 66, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(232, 170, 66, 0.3));
+  }
+}
+
+/* Optional: Add a subtle checkmark icon next to the OS name */
+.download-card-highlight .card-content h3::after {
+  content: '✓';
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+/* New release badge */
+.new-release-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.new-release-badge {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 0 var(--radius-md) 0 var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Error message */
+.download-error {
+  background-color: var(--danger-bg);
+  color: var(--danger-fg);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.download-error i {
+  color: var(--danger-fg);
+}
+
+/* How to play section */
+.how-to-play {
+  margin-top: var(--spacing-xxl);
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.controls-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+}
+
+.controls-card h4 {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--spacing-md);
+}
+
+.controls-card ul {
+  list-style: none;
+}
+
+.controls-card li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.key {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--secondary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-right: 5px;
+  min-width: 25px;
+  text-align: center;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}

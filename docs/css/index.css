@@ -1,0 +1,20 @@
+/* Core styles */
+@import 'variables.css';
+@import 'reset.css';
+
+/* Layout components */
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/footer.css';
+
+/* Main sections */
+@import 'components/features.css';
+@import 'components/gallery.css';
+@import 'components/download.css';
+@import 'components/team.css';
+@import 'components/credits.css';
+@import 'components/leaderboard.css';
+@import 'components/development.css';
+
+/* General responsive styles */
+@import 'responsive.css';

@@ -1,0 +1,38 @@
+:root {
+  /* Color variables */
+  --primary: #e8aa42;
+  --primary-fg: #1a1a1a;
+
+  --secondary: #025464;
+  --secondary-fg: #ffffff;
+
+  --accent: #e57c23;
+  --accent-fg: #ffffff;
+
+  --disabled: #cccccc;
+  --disabled-fg: #666666;
+
+  --background: #f8f0e5;
+  --foreground: #1a1a1a;
+
+  --danger: #b31312;
+  --danger-fg: #ffffff;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-heading: 'Cairo', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}

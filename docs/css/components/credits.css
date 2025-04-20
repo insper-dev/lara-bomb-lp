@@ -1,0 +1,63 @@
+/* Credits section */
+.credits {
+  background-color: var(--secondary);
+  color: var(--secondary-fg);
+  padding: var(--spacing-xxl) 0;
+}
+
+.credits h2 {
+  color: white;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.credit-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  transition: transform 0.3s;
+}
+
+.credit-card:hover {
+  transform: translateY(-5px);
+}
+
+.credit-card h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.credit-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary);
+}
+
+/* credit card links */
+.credit-card a {
+  color: var(--primary);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+}
+
+.credit-card a:hover {
+  background-color: var(--primary);
+  color: var(--primary-fg);
+  text-decoration: none;
+}
+
+.credits-section {
+  margin-top: var(--spacing-xxl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

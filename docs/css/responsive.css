@@ -1,0 +1,66 @@
+/* Common responsive styles */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .download-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    min-width: 90%;
+  }
+
+  section {
+    min-height: auto;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .architecture-diagram {
+    flex-direction: column;
+  }
+
+  .arch-arrow {
+    transform: rotate(90deg);
+    margin: var(--spacing-sm) 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-badges {
+    justify-content: center;
+  }
+}
+
+@media (max-height: 800px) {
+  section {
+    min-height: auto;
+    padding: var(--spacing-xl) 0;
+  }
+}

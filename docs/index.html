@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <!-- Header/Navigation -->
@@ -24,11 +24,10 @@
         </div>
         <nav class="nav">
           <a href="#home" class="nav-link">Início</a>
-          <a href="#about" class="nav-link">Sobre</a>
-          <a href="#gallery" class="nav-link">Galeria</a>
+          <a href="#features" class="nav-link">Recursos</a>
           <a href="#download" class="nav-link">Download</a>
           <a href="#team" class="nav-link">Equipe</a>
-          <a href="#leaderboard" class="nav-link">Leaderboard</a>
+          <a href="#dev-log" class="nav-link">Desenvolvimento</a>
         </nav>
       </div>
     </header>
@@ -36,30 +35,90 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container">
-        <h1>Lara Bomb</h1>
-        <p>
-          A evolução do Bomberman clássico com temática árabe. Coloque bombas,
-          destrua paredes e derrote seus inimigos online!
-        </p>
-        <div class="hero-buttons">
-          <a href="#download" class="btn btn-primary btn-link">
-            <i data-lucide="download"></i> Download
-          </a>
-          <a href="#about" class="btn btn-outline btn-link">Saiba Mais</a>
+        <div class="hero-content">
+          <h1>Lara Bomb</h1>
+          <p class="hero-description">
+            A evolução do Bomberman clássico com temática árabe. Coloque bombas,
+            destrua paredes e derrote seus inimigos <strong>online</strong>!
+          </p>
+          <div class="hero-badges">
+            <span class="badge badge-primary">Multiplayer Online</span>
+            <span class="badge badge-secondary">Projeto Acadêmico</span>
+            <span class="badge">Insper 2025</span>
+          </div>
+          <div class="hero-buttons">
+            <a href="#download" class="btn btn-primary btn-link">
+              <i data-lucide="download"></i> Download
+            </a>
+            <a href="#features" class="btn btn-outline btn-link">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-image-container">
+            <img
+              src="https://picsum.photos/300/150"
+              alt="Lara Bomb Gameplay"
+              class="hero-image"
+            />
+            <div class="hero-badge">
+              <i data-lucide="wifi"></i> Multiplayer em Tempo Real
+            </div>
+          </div>
+
+          <div class="gallery-container">
+            <button class="gallery-button prev" aria-label="Imagem anterior">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <div class="gallery">
+              <div class="gallery-item">
+                <img
+                  src="https://picsum.photos/300/150"
+                  alt="Gameplay no deserto"
+                />
+                <div class="gallery-caption">Combate no deserto</div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://picsum.photos/300/150" alt="Menu principal" />
+                <div class="gallery-caption">Menu principal</div>
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://picsum.photos/300/150"
+                  alt="Power-ups e bombas"
+                />
+                <div class="gallery-caption">Power-ups e explosões</div>
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://picsum.photos/300/150"
+                  alt="Multiplayer em ação"
+                />
+                <div class="gallery-caption">Multiplayer online</div>
+              </div>
+            </div>
+            <button class="gallery-button next" aria-label="Próxima imagem">
+              <i data-lucide="chevron-right"></i>
+            </button>
+            <div class="gallery-nav">
+              <span class="gallery-dot active"></span>
+              <span class="gallery-dot"></span>
+              <span class="gallery-dot"></span>
+              <span class="gallery-dot"></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Features Section -->
+    <section id="features" class="features">
       <div class="container">
-        <h2><i data-lucide="gamepad-2"></i> Sobre o Jogo</h2>
-        <p>
-          Lara Bomb é um jogo inspirado no clássico Bomberman, com uma temática
-          árabe e ambientação no deserto. Os jogadores colocam bombas para
-          destruir obstáculos e derrotar oponentes, enquanto coletam power-ups e
-          tentam ser o último a sobreviver.
-        </p>
+        <div class="section-header">
+          <h2><i data-lucide="zap"></i> Recursos e Tecnologias</h2>
+          <p class="section-subtitle">
+            Conheça as tecnologias e recursos que tornam Lara Bomb especial
+          </p>
+        </div>
 
         <div class="features-grid">
           <div class="feature-card">
@@ -67,66 +126,95 @@
             <h3>Multiplayer Online</h3>
             <p>
               Jogue contra amigos ou desconhecidos em partidas online de até 2
-              jogadores.
+              jogadores em tempo real através de conexão WebSocket.
             </p>
           </div>
           <div class="feature-card">
             <i data-lucide="trophy"></i>
             <h3>Sistema de Ranking</h3>
-            <p>Vença partidas e veja sua posição no ranking</p>
+            <p>
+              Vença partidas e veja sua posição no ranking global. Seus
+              resultados são armazenados em nosso servidor e exibidos em tempo
+              real.
+            </p>
           </div>
           <div class="feature-card">
             <i data-lucide="zap"></i>
             <h3>Power-Ups</h3>
             <p>
               Colete power-ups para aumentar o alcance das bombas, velocidade, e
-              quantidade de bombas simultâneas.
+              quantidade de bombas simultâneas para dominar seus oponentes.
             </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-      <div class="container">
-        <h2><i data-lucide="image"></i> Galeria</h2>
-        <div class="gallery-container">
-          <button class="gallery-button prev" aria-label="Imagem anterior">
-            <i data-lucide="chevron-left"></i>
-          </button>
-          <div class="gallery">
-            <div class="gallery-item">
-              <img
-                src="https://picsum.photos/300/150"
-                alt="Gameplay no deserto"
-              />
+        <div class="tech-showcase">
+          <h3><i data-lucide="cpu"></i> Tecnologias Utilizadas</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <i data-lucide="play"></i>
+              <h4>PyGame</h4>
+              <p>
+                Framework de jogos em Python utilizado para criar a interface do
+                cliente
+              </p>
             </div>
-            <div class="gallery-item">
-              <img src="https://picsum.photos/300/150" alt="Menu principal" />
+            <div class="tech-card">
+              <i data-lucide="webhook"></i>
+              <h4>WebSockets</h4>
+              <p>
+                Protocolo de comunicação para interação em tempo real entre
+                cliente e servidor
+              </p>
             </div>
-            <div class="gallery-item">
-              <img
-                src="https://picsum.photos/300/150"
-                alt="Power-ups e bombas"
-              />
+            <div class="tech-card">
+              <i data-lucide="server"></i>
+              <h4>FastAPI</h4>
+              <p>
+                Framework utilizado para autenticação, WebSocket, ranking,
+                cadastro, leaderboard e matchmaking.
+              </p>
             </div>
-            <div class="gallery-item">
-              <img
-                src="https://picsum.photos/300/150"
-                alt="Multiplayer em ação"
-              />
+            <div class="tech-card">
+              <i data-lucide="database"></i>
+              <h4>Prisma com SQLite</h4>
+              <p>
+                ORM utilizado para gerenciar o banco de dados SQLite,
+                armazenando informações de usuários e rankings.
+              </p>
             </div>
           </div>
-          <button class="gallery-button next" aria-label="Próxima imagem">
-            <i data-lucide="chevron-right"></i>
-          </button>
-          <div class="gallery-nav">
-            <span class="gallery-dot active"></span>
-            <span class="gallery-dot"></span>
-            <span class="gallery-dot"></span>
-            <span class="gallery-dot"></span>
+        </div>
+
+        <div class="architecture-section">
+          <h3><i data-lucide="network"></i> Arquitetura Cliente-Servidor</h3>
+          <div class="architecture-diagram">
+            <div class="arch-component client">
+              <i data-lucide="monitor"></i>
+              <span>Cliente PyGame</span>
+            </div>
+            <div class="arch-arrow">
+              <i data-lucide="arrow-right"></i>
+              <span>WebSockets</span>
+            </div>
+            <div class="arch-component server">
+              <i data-lucide="server"></i>
+              <span>Servidor de Jogo</span>
+            </div>
+            <div class="arch-arrow">
+              <i data-lucide="arrow-right"></i>
+              <span>SQL</span>
+            </div>
+            <div class="arch-component database">
+              <i data-lucide="database"></i>
+              <span>Database</span>
+            </div>
           </div>
+          <p class="architecture-note">
+            O design cliente-servidor permite que diferentes interfaces (PyGame,
+            Web, Mobile) se conectem ao mesmo servidor de jogo, possibilitando
+            experiências multiplataforma.
+          </p>
         </div>
       </div>
     </section>
@@ -134,8 +222,12 @@
     <!-- Download Section -->
     <section id="download" class="download">
       <div class="container">
-        <h2><i data-lucide="download-cloud"></i> Download</h2>
-        <p>Escolha a versão para o seu sistema operacional e comece a jogar!</p>
+        <div class="section-header">
+          <h2><i data-lucide="download-cloud"></i> Download</h2>
+          <p class="section-subtitle">
+            Escolha a versão para o seu sistema operacional e comece a jogar!
+          </p>
+        </div>
 
         <div class="download-options">
           <div class="download-card" data-os="windows">
@@ -146,6 +238,11 @@
             <div class="card-content">
               <h3>Windows</h3>
               <p>Basta baixar e dar dois cliques para jogar!</p>
+              <ul class="requirements">
+                <li><i data-lucide="cpu"></i> Windows 10 ou superior</li>
+                <li><i data-lucide="hard-drive"></i> 100MB de espaço livre</li>
+                <li><i data-lucide="wifi"></i> Conexão com internet</li>
+              </ul>
               <button id="download-windows" class="btn btn-disabled">
                 <i data-lucide="timer"></i> Coming Soon
               </button>
@@ -158,7 +255,12 @@
             </div>
             <div class="card-content">
               <h3>Linux</h3>
-              <p>Basta baixar e dar dois cliques para jogar!</p>
+              <p>Basta baixar o binário e executá-lo diretamente!</p>
+              <ul class="requirements">
+                <li><i data-lucide="cpu"></i> Linux com kernel recente</li>
+                <li><i data-lucide="hard-drive"></i> 100MB de espaço livre</li>
+                <li><i data-lucide="wifi"></i> Conexão com internet</li>
+              </ul>
               <button id="download-linux" class="btn btn-disabled">
                 <i data-lucide="timer"></i> Coming Soon
               </button>
@@ -172,142 +274,294 @@
             <div class="card-content">
               <h3>macOS</h3>
               <p>Basta baixar e dar dois cliques para jogar!</p>
+              <ul class="requirements">
+                <li><i data-lucide="cpu"></i> macOS 11 ou superior</li>
+                <li><i data-lucide="hard-drive"></i> 100MB de espaço livre</li>
+                <li><i data-lucide="wifi"></i> Conexão com internet</li>
+              </ul>
               <button id="download-macos" class="btn btn-disabled">
                 <i data-lucide="timer"></i> Coming Soon
               </button>
             </div>
           </div>
         </div>
+
+        <div class="how-to-play">
+          <h3><i data-lucide="help-circle"></i> Como Jogar</h3>
+          <div class="controls-grid">
+            <div class="controls-card">
+              <h4><i data-lucide="keyboard"></i> Controles</h4>
+              <ul>
+                <li>
+                  <span class="key">W</span><span class="key">A</span
+                  ><span class="key">S</span><span class="key">D</span> -
+                  Movimento
+                </li>
+                <li><span class="key">Espaço</span> - Colocar bomba</li>
+                <li><span class="key">ESC</span> - Menu / Pausar</li>
+              </ul>
+            </div>
+            <div class="controls-card">
+              <h4><i data-lucide="flame"></i> Poder das Bombas</h4>
+              <p>
+                As bombas explodem em cruz, destruindo obstáculos e inimigos no
+                caminho. Colete power-ups para aumentar o alcance e quantidade
+                de bombas.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
+    <!-- Team and Credits Section (Combined) -->
+    <section id="team" class="team-credits">
       <div class="container">
-        <h2><i data-lucide="users"></i> Nossa Equipe</h2>
+        <div class="section-header">
+          <h2><i data-lucide="users"></i> Nossa Equipe</h2>
+          <p class="section-subtitle">
+            Conheça os desenvolvedores por trás do Lara Bomb
+          </p>
+        </div>
+
         <div class="team-grid">
           <div class="team-member">
-            <img src="https://github.com/felipeadeildo.png" alt="Lipe" />
-            <h3>Felipe Adeildo</h3>
-            <p>Full-Stack Developer</p>
-            <div class="social-links">
-              <a
-                href="https://github.com/felipeadeildo"
-                target="_blank"
-                aria-label="GitHub do Felipe"
-              >
-                <i data-lucide="github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/felipeadeildo"
-                target="_blank"
-                aria-label="LinkedIn do Felipe"
-              >
-                <i data-lucide="linkedin"></i>
-              </a>
+            <img
+              src="https://github.com/felipeadeildo.png"
+              alt="Felipe Adeildo"
+            />
+            <div class="member-info">
+              <h3>Felipe Adeildo</h3>
+              <p class="member-role">Desenvolvedor Full-Stack</p>
+              <div class="member-bio">
+                <p>
+                  Responsável pelo desenvolvimento completo do backend,
+                  incluindo rotas API, autenticação, dependency injection,
+                  comunicação com banco de dados, modelagem, sistema de ranking
+                  e broadcast. No lado do cliente, implementou services de
+                  comunicação thread-safe e requisições assíncronas utilizando
+                  httpx em thread separada, preservando o loop principal do jogo
+                  sem perda de FPS. Também desenvolveu os workflows de CI/CD com
+                  GitHub Actions para deploy do servidor e lançamento
+                  automatizado de builds para Windows, Linux e macOS utilizando
+                  PyInstaller.
+                </p>
+                <div class="member-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">WebSockets</span>
+                  <span class="skill-tag">FastAPI</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">Prisma ORM</span>
+                  <span class="skill-tag">CI/CD</span>
+                  <span class="skill-tag">GitHub Actions</span>
+                  <span class="skill-tag">Threading</span>
+                  <span class="skill-tag">Full-Stack</span>
+                </div>
+              </div>
+              <div class="social-links">
+                <a
+                  href="https://github.com/felipeadeildo"
+                  target="_blank"
+                  aria-label="GitHub do Felipe"
+                >
+                  <i data-lucide="github"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/felipeadeildo"
+                  aria-label="LinkedIn do Felipe"
+                >
+                  <i data-lucide="linkedin"></i>
+                </a>
+              </div>
             </div>
           </div>
           <div class="team-member">
-            <img src="https://github.com/VihOht.png" alt="Robson" />
-            <h3>Robson França</h3>
-            <p>Game Developer</p>
-            <div class="social-links">
-              <a
-                href="https://github.com/VihOht"
-                target="_blank"
-                aria-label="GitHub do Robson"
-              >
-                <i data-lucide="github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/robson-fran%C3%A7a-981276257/"
-                target="_blank"
-                aria-label="LinkedIn do Robson"
-              >
-                <i data-lucide="linkedin"></i>
-              </a>
+            <img src="https://github.com/VihOht.png" alt="Robson França" />
+            <div class="member-info">
+              <h3>Robson França</h3>
+              <p class="member-role">Game Developer</p>
+              <div class="member-bio">
+                <p>
+                  Responsável pelo desenvolvimento completo do cliente em
+                  PyGame, criando uma arquitetura modular e abstrata que mantém
+                  a consistência do jogo em qualquer contexto. Desenvolveu todos
+                  os componentes visuais reutilizáveis (botões, menus,
+                  interfaces), sistema de cenas, interações com sprites,
+                  animações, mecânicas de jogo, feedbacks visuais e sonoros para
+                  o usuário. Gerenciou o fluxo de telas do jogo e criou toda a
+                  experiência visual e interativa, incluindo personagens,
+                  ambientes e elementos de gameplay.
+                </p>
+                <div class="member-skills">
+                  <span class="skill-tag">PyGame</span>
+                  <span class="skill-tag">Game Design</span>
+                  <span class="skill-tag">2D Graphics</span>
+                  <span class="skill-tag">Component Design</span>
+                  <span class="skill-tag">UI/UX</span>
+                  <span class="skill-tag">Animation</span>
+                  <span class="skill-tag">Game Mechanics</span>
+                  <span class="skill-tag">Physics</span>
+                  <span class="skill-tag">Scene Management</span>
+                </div>
+              </div>
+              <div class="social-links">
+                <a
+                  href="https://github.com/VihOht"
+                  aria-label="GitHub do Robson"
+                >
+                  <i data-lucide="github"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/robson-fran%C3%A7a-981276257/"
+                  aria-label="LinkedIn do Robson"
+                >
+                  <i data-lucide="linkedin"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Leaderboard Section -->
-    <section id="leaderboard" class="leaderboard-section">
-      <div class="container">
-        <h2><i data-lucide="medal"></i> Leaderboard</h2>
-        <p>Confira os melhores jogadores de Lara Bomb!</p>
-
-        <div class="leaderboard">
-          <table id="leaderboard-table" class="leaderboard-table">
-            <thead>
-              <tr>
-                <th>Posição</th>
-                <th>Jogador</th>
-                <th>Vitórias</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="3">Carregando leaderboard...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Credits Section -->
-    <section id="credits" class="credits">
-      <div class="container">
-        <h2><i data-lucide="heart"></i> Créditos</h2>
-        <div class="credits-grid">
-          <div class="credit-card">
-            <h3><i data-lucide="code"></i> Desenvolvimento</h3>
-            <p>
-              Este jogo foi desenvolvido como projeto acadêmico pelos estudantes
-              listados na seção Equipe.
-            </p>
-          </div>
-          <div class="credit-card">
-            <h3><i data-lucide="music"></i> Trilha Sonora</h3>
-            <p>Músicas por <a href="#">Finx</a></p>
-            <p>Efeitos Sonoros por <a href="#">Finx</a></p>
-          </div>
-          <div class="credit-card">
-            <h3><i data-lucide="palette"></i> Arte</h3>
-            <p>Sprites e Concept Art por <a href="#">Arak</a></p>
-            <p>Interface e Menus por <a href="#">Arak</a></p>
+        <!-- Credits subsection -->
+        <div class="credits-section">
+          <h3><i data-lucide="heart"></i> Agradecimentos e Recursos</h3>
+          <div class="credits-grid">
+            <div class="credit-card">
+              <h4><i data-lucide="code"></i> Desenvolvimento</h4>
+              <p>
+                Este jogo foi desenvolvido como projeto acadêmico da disciplina
+                DevLife de Ciência da Computação do Insper.
+              </p>
+            </div>
+            <div class="credit-card">
+              <h4><i data-lucide="music"></i> Trilha Sonora</h4>
+              <p>Músicas por <a href="#">Finx</a></p>
+              <p>Efeitos Sonoros por <a href="#">Finx</a></p>
+            </div>
+            <div class="credit-card">
+              <h4><i data-lucide="palette"></i> Arte</h4>
+              <p>Sprites e Concept Art por <a href="#">Arak</a></p>
+              <p>Interface e Menus por <a href="#">Arak</a></p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CRAP Report Section -->
-    <section id="crap" class="crap-report">
-      <div class="container">
-        <h2>Avaliação dos Princípios CRAP</h2>
-        <p>
-          Esta seção será atualizada após a avaliação dos princípios CRAP pela
-          turma.
-        </p>
+        <!-- Leaderboard subsection -->
+        <div class="leaderboard-section">
+          <h3><i data-lucide="medal"></i> Leaderboard</h3>
+          <p>Confira os melhores jogadores de Lara Bomb no ranking mundial!</p>
+
+          <div class="leaderboard">
+            <table id="leaderboard-table" class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Jogador</th>
+                  <th>Vitórias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3" class="loading-cell">
+                    Carregando ranking...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Development Log Section -->
-    <section id="development-log" class="development-log">
+    <section id="dev-log" class="development-section">
       <div class="container">
-        <h2><i data-lucide="git-branch"></i> Log de Desenvolvimento</h2>
-        <p>
-          Acompanhe o progresso de desenvolvimento do jogo através dos commits
-          do repositório.
-        </p>
+        <div class="section-header">
+          <h2><i data-lucide="git-branch"></i> Processo de Desenvolvimento</h2>
+          <p class="section-subtitle">
+            Acompanhe a jornada de criação do jogo desde o início
+          </p>
+        </div>
 
-        <div class="dev-log-timeline">
-          <div id="commits-container" class="commits-container">
-            <div class="loading-commits">
-              <i data-lucide="loader"></i>
-              <p>Carregando histórico de commits...</p>
+        <div class="dev-section-content">
+          <div class="challenges-section">
+            <h3><i data-lucide="mountain"></i> Desafios Superados</h3>
+            <div class="challenges-grid">
+              <div class="challenge-card">
+                <h4><i data-lucide="wifi"></i> Sincronização em Tempo Real</h4>
+                <p>
+                  Implementar o multiplayer online foi nosso maior desafio.
+                  Tivemos que criar um sistema de sincronização de estado entre
+                  o servidor e os clientes que fosse rápido o suficiente para
+                  uma experiência sem lag, mesmo com a latência da rede.
+                </p>
+              </div>
+              <div class="challenge-card">
+                <h4><i data-lucide="box"></i> Física e Colisões</h4>
+                <p>
+                  Criar um sistema de colisão e física que funcionasse tanto
+                  localmente quanto quando sincronizado com o servidor foi
+                  complexo. Implementamos um sistema híbrido onde algumas
+                  colisões são verificadas no cliente para resposta imediata.
+                </p>
+              </div>
+              <div class="challenge-card">
+                <h4><i data-lucide="hourglass"></i> Gerenciamento de Estado</h4>
+                <p>
+                  Manter o estado do jogo consistente entre todos os jogadores
+                  exigiu uma arquitetura robusta de comunicação. Implementamos
+                  um sistema de mensagens com confirmação para garantir que
+                  todos os jogadores estejam vendo o mesmo estado do jogo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CRAP Report Section -->
+          <div class="crap-report">
+            <h3><i data-lucide="layout"></i> Avaliação dos Princípios CRAP</h3>
+            <p>
+              Esta seção será atualizada após a avaliação dos princípios CRAP
+              pela turma. Aqui documentaremos as melhorias de design baseadas
+              nos princípios de:
+            </p>
+            <div class="crap-principles">
+              <div class="crap-principle">
+                <h4>C - Contraste</h4>
+                <p>Elementos diferentes devem ser realmente diferentes</p>
+              </div>
+              <div class="crap-principle">
+                <h4>R - Repetição</h4>
+                <p>
+                  Elementos visuais devem ser repetidos por toda a interface
+                </p>
+              </div>
+              <div class="crap-principle">
+                <h4>A - Alinhamento</h4>
+                <p>Nada deve ser posicionado arbitrariamente</p>
+              </div>
+              <div class="crap-principle">
+                <h4>P - Proximidade</h4>
+                <p>Itens relacionados devem ser agrupados</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Git commit history -->
+          <div class="commit-history">
+            <h3><i data-lucide="git-commit"></i> Histórico de Commits</h3>
+            <p>
+              Acompanhe o progresso de desenvolvimento do jogo através dos
+              commits do repositório.
+            </p>
+
+            <div class="dev-log-timeline">
+              <div id="commits-container" class="commits-container">
+                <div class="loading-commits">
+                  <i data-lucide="loader"></i>
+                  <p>Carregando histórico de commits...</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -317,12 +571,34 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <div class="social-links">
-          <a href="https://github.com/insper-dev/lara-bomb" aria-label="GitHub">
-            <i data-lucide="github"></i>
-          </a>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Lara Bomb Logo" />
+            <span>Lara Bomb</span>
+          </div>
+          <div class="footer-links">
+            <a href="#home">Início</a>
+            <a href="#features">Recursos</a>
+            <a href="#download">Download</a>
+            <a href="#team">Equipe</a>
+            <a href="#dev-log">Desenvolvimento</a>
+          </div>
+          <div class="footer-social">
+            <a
+              href="https://github.com/insper-dev/lara-bomb"
+              aria-label="GitHub"
+            >
+              <i data-lucide="github"></i>
+            </a>
+          </div>
         </div>
-        <p>&copy; 2025 Lara Bomb. Todos os direitos reservados.</p>
+        <div class="footer-info">
+          <p>
+            Projeto acadêmico desenvolvido para o curso de Ciência da Computação
+            no Insper.
+          </p>
+          <p>&copy; 2025 Lara Bomb. Todos os direitos reservados.</p>
+        </div>
       </div>
     </footer>
 

@@ -15,15 +15,25 @@ function initGallery() {
   const prevBtn = document.querySelector('.gallery-button.prev')
   const nextBtn = document.querySelector('.gallery-button.next')
 
+  if (!gallery || galleryItems.length === 0) return
+
   let currentIndex = 0
 
   function updateGallery() {
-    const scrollPosition =
-      galleryItems[currentIndex].offsetLeft - gallery.offsetLeft
+    // Calculate the scroll position more accurately
+    const itemWidth =
+      galleryItems[0].offsetWidth +
+      parseInt(getComputedStyle(galleryItems[0]).marginRight)
+    const scrollPosition = itemWidth * currentIndex
 
     gallery.scrollTo({
       left: scrollPosition,
       behavior: 'smooth',
+    })
+
+    // Update active states
+    galleryItems.forEach((item, idx) => {
+      item.style.transform = idx === currentIndex ? 'scale(1)' : 'scale(0.95)'
     })
 
     dots.forEach((dot, index) => {
@@ -255,7 +265,7 @@ function initSmoothScroll() {
 
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 80,
+          top: targetElement.offsetTop - 70,
           behavior: 'smooth',
         })
       }
@@ -281,27 +291,75 @@ function initDownloads() {
   const userOS = {
     Windows: /Win/i.test(navigator.userAgent),
     MacOS: /Mac/i.test(navigator.userAgent),
-    Linux: /Linux|X11/i.test(navigator.userAgent),
+    Linux:
+      /Linux|X11/i.test(navigator.userAgent) &&
+      !/Android/i.test(navigator.userAgent),
+    Android: /Android/i.test(navigator.userAgent),
+    iOS: /iPhone|iPad|iPod/i.test(navigator.userAgent),
   }
 
-  const windowsBtn = document.getElementById('download-windows')
-  const linuxBtn = document.getElementById('download-linux')
-  const macosBtn = document.getElementById('download-macos')
+  console.log('Detected OS:', Object.keys(userOS).filter((os) => userOS[os])[0])
 
-  const apiUrl =
-    'https://api.github.com/repos/insper-dev/lara-bomb/releases/latest'
+  const windowsCard = document.querySelector(
+    '.download-card[data-os="windows"]'
+  )
+  const linuxCard = document.querySelector('.download-card[data-os="linux"]')
+  const macosCard = document.querySelector('.download-card[data-os="macos"]')
 
+  let windowsBtn = document.getElementById('download-windows')
+  let linuxBtn = document.getElementById('download-linux')
+  let macosBtn = document.getElementById('download-macos')
+
+  // If buttons don't exist or are not found by ID, try to find them in the card content
+  if (!windowsBtn && windowsCard) {
+    windowsBtn =
+      windowsCard.querySelector('button') || windowsCard.querySelector('a')
+  }
+
+  if (!linuxBtn && linuxCard) {
+    linuxBtn = linuxCard.querySelector('button') || linuxCard.querySelector('a')
+  }
+
+  if (!macosBtn && macosCard) {
+    macosBtn = macosCard.querySelector('button') || macosCard.querySelector('a')
+  }
+
+  // Clear any existing highlights first
+  document.querySelectorAll('.download-card').forEach((card) => {
+    card.classList.remove('download-card-highlight')
+  })
+
+  // Highlight the user's OS
   const highlightUserCard = () => {
-    const osType = userOS.Windows ? 'windows' : userOS.MacOS ? 'macos' : 'linux'
+    let osType = 'linux' // Default fallback
+
+    if (userOS.Windows) {
+      osType = 'windows'
+    } else if (userOS.MacOS) {
+      osType = 'macos'
+    } else if (userOS.Linux) {
+      osType = 'linux'
+    }
+
     const userCard = document.querySelector(
       `.download-card[data-os="${osType}"]`
     )
     if (userCard) {
+      document.querySelectorAll('.download-card').forEach((card) => {
+        if (card !== userCard) card.classList.remove('download-card-highlight')
+      })
+
       userCard.classList.add('download-card-highlight')
+      console.log(`Highlighted card for ${osType}`)
+    } else {
+      console.warn(`Could not find download card for ${osType}`)
     }
   }
 
-  highlightUserCard()
+  setTimeout(highlightUserCard, 100)
+
+  const apiUrl =
+    'https://api.github.com/repos/insper-dev/lara-bomb/releases/latest'
 
   fetch(apiUrl)
     .then((response) => {
@@ -325,41 +383,51 @@ function initDownloads() {
       const assetMapping = {
         'lara-bomb.exe': {
           btn: windowsBtn,
-          container: document.querySelector('[data-os="windows"]'),
+          container: windowsCard,
         },
         'lara-bomb-linux': {
           btn: linuxBtn,
-          container: document.querySelector('[data-os="linux"]'),
+          container: linuxCard,
         },
         'lara-bomb-macos': {
           btn: macosBtn,
-          container: document.querySelector('[data-os="macos"]'),
+          container: macosCard,
         },
       }
 
       assets.forEach((asset) => {
         const mapping = assetMapping[asset.name]
-        if (mapping) {
+        if (mapping && mapping.btn && mapping.container) {
           const { btn, container } = mapping
 
           btn.classList.remove('btn-disabled')
           btn.classList.add('btn-primary')
           btn.innerHTML = `<i data-lucide="download"></i> Download ${version}`
-          btn.addEventListener('click', () => {
-            window.location.href = asset.browser_download_url
-          })
+          btn.href = asset.browser_download_url
+
+          if (btn.tagName.toLowerCase() === 'button') {
+            btn.addEventListener('click', () => {
+              window.location.href = asset.browser_download_url
+            })
+          }
 
           if (isNewRelease) {
             const badgeContainer = container.querySelector(
               '.new-release-container'
             )
-            const badge = document.createElement('span')
-            badge.className = 'new-release-badge'
-            badge.textContent = 'Novo!'
-            badgeContainer.appendChild(badge)
+            if (badgeContainer) {
+              badgeContainer.innerHTML = ''
+
+              const badge = document.createElement('span')
+              badge.className = 'new-release-badge'
+              badge.textContent = 'Novo!'
+              badgeContainer.appendChild(badge)
+            }
           }
         }
       })
+
+      highlightUserCard()
 
       // precisa reinicializar os ícones.
       lucide.createIcons()

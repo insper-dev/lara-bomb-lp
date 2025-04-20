@@ -1,0 +1,119 @@
+/* Gallery section */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  margin-top: var(--spacing-lg);
+}
+
+.gallery {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  border-radius: var(--radius-md);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-md);
+}
+
+.gallery::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari/Edge */
+}
+
+.gallery-item {
+  scroll-snap-align: center;
+  min-width: calc(100% - var(--spacing-md) * 2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.gallery-dot:hover {
+  transform: scale(1.2);
+}
+
+.gallery-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+.gallery-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.gallery-button.prev {
+  left: var(--spacing-sm);
+}
+
+.gallery-button.next {
+  right: var(--spacing-sm);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .gallery-item {
+    min-width: calc(50% - var(--spacing-md));
+  }
+}
+
+@media (min-width: 992px) {
+  .gallery-item {
+    min-width: calc(33.333% - var(--spacing-md));
+  }
+}

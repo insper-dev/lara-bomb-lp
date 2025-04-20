@@ -1,0 +1,108 @@
+/* Team section */
+.team {
+  background-color: white;
+  padding: var(--spacing-xxl) 0;
+}
+
+.team-credits {
+  background-color: white;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.team-member {
+  display: flex;
+  gap: var(--spacing-lg);
+  max-width: 800px;
+  background: var(--background);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  border: 4px solid var(--primary);
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-role {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.member-bio {
+  margin-bottom: var(--spacing-md);
+}
+
+.member-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: var(--spacing-sm);
+}
+
+.skill-tag {
+  background: var(--primary);
+  color: var(--primary-fg);
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* social links */
+.social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: var(--secondary-fg);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-links a:hover {
+  background-color: var(--primary);
+  color: var(--primary-fg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+  .team-member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-skills {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

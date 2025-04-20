@@ -1,0 +1,65 @@
+/* Header & Navigation */
+.header {
+  background-color: var(--primary);
+  color: var(--primary-fg);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  min-height: auto;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  min-height: auto;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo span {
+  font-size: 1.8rem;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav-link {
+  color: var(--primary-fg);
+  font-weight: 600;
+  padding: var(--spacing-sm);
+  position: relative;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-fg);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+  left: 0;
+}
