@@ -77,7 +77,7 @@ function initDevelopmentLog() {
   const commitsContainer = document.getElementById('commits-container')
   if (!commitsContainer) return
 
-  const repoPath = 'insper-dev/lara-bomb'
+  const repoPath = 'insper-dev/bomb'
   const apiUrl = `https://api.github.com/repos/${repoPath}/commits?per_page=100`
 
   fetch(apiUrl)
@@ -200,7 +200,7 @@ function initLeaderboard() {
   const leaderboardTable = document.getElementById('leaderboard-table')
   if (!leaderboardTable) return
 
-  const socket = new WebSocket('wss://lara-bomb-api.insper.dev/ws/leaderboard')
+  const socket = new WebSocket('wss://bomb-api.insper.dev/ws/leaderboard')
 
   socket.addEventListener('open', (event) => {
     console.log('Conectado ao servidor de leaderboard')
@@ -359,7 +359,7 @@ function initDownloads() {
   setTimeout(highlightUserCard, 100)
 
   const apiUrl =
-    'https://api.github.com/repos/insper-dev/lara-bomb/releases/latest'
+    'https://api.github.com/repos/insper-dev/bomb/releases/latest'
 
   fetch(apiUrl)
     .then((response) => {
@@ -381,15 +381,15 @@ function initDownloads() {
 
       const assets = data.assets
       const assetMapping = {
-        'lara-bomb.exe': {
+        'bomb.exe': {
           btn: windowsBtn,
           container: windowsCard,
         },
-        'lara-bomb-linux': {
+        'bomb-linux': {
           btn: linuxBtn,
           container: linuxCard,
         },
-        'lara-bomb-macos': {
+        'bomb-macos': {
           btn: macosBtn,
           container: macosCard,
         },
